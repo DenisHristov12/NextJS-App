@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import MeetupList from '../components/meetups/MeetupList';
 
 const DUMMY_MEETUPS = [
@@ -20,7 +21,19 @@ const DUMMY_MEETUPS = [
 ];
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups}></MeetupList>;
+  return (
+    <>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active react meetups"
+        />
+      </Head>
+
+      <MeetupList meetups={props.meetups}></MeetupList>
+    </>
+  );
 }
 
 // export async function getServerSideProps(context) {

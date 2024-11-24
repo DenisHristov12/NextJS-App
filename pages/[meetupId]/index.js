@@ -1,13 +1,23 @@
+import Head from 'next/head';
 import MeetupDetail from '../../components/meetups/MeetupDetail';
 
 function DetailsPage() {
   return (
-    <MeetupDetail
-      image=""
-      title="Title"
-      address="address"
-      description="description"
-    />
+    <>
+      <Head>
+        <title>{props.meetupData.title}</title>
+        <meta
+          name="description"
+          content={props.meetupData.description}
+        />
+      </Head>
+      <MeetupDetail
+        image=""
+        title="Title"
+        address="address"
+        description="description"
+      />
+    </>
   );
 }
 
@@ -34,7 +44,7 @@ export function getStaticProps(context) {
 
   return {
     props: {
-      MeetupData: {
+      meetupData: {
         image: '',
         id: 'm1',
         title: 'First meetup',
